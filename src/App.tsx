@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-    <h1>Starting a new project</h1>
+    <h1>Creating the dev Branch</h1>
     </>
   )
 }
