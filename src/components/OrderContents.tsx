@@ -1,3 +1,4 @@
+import { formatCurrency } from '../helpers';
 import { OrderItem } from '../types';
 
 type OrderContentsProps = {
@@ -9,15 +10,27 @@ const OrderContents = ({ order }: OrderContentsProps) => {
     <div>
       <h2 className="font-black text-4xl">Consumption</h2>
 
-      <div className="space-y-3 mt-5">
+      <div className="space-y-3 mt-10">
         {order.length === 0 ? (
           <p className="text-center font-black text-2xl">The order is empty</p>
         ) : (
           order.map((item) => (
-            <div key={item.id}>
-              <p className="font-black">
-                {item.name} - ${item.price}
-              </p>
+            <div
+              key={item.id}
+              className="flex justify-between items-center border-t border-gray-200 py-5 last-of-type:border-b"
+            >
+              <div>
+                <p className="text-lg">
+                  {item.name} - {formatCurrency(item.price)}
+                </p>
+                <p className="font-black">
+                  Quantity: {item.quantity} -{' '}
+                  {formatCurrency(item.price * item.quantity)}
+                </p>
+              </div>
+              <button className="bg-red-600 h-7 w-7 rounded-full text-white font-black">
+                x
+              </button>
             </div>
           ))
         )}
