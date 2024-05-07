@@ -2,13 +2,13 @@ import { MenuItems } from '../types';
 
 type MenuItemsProps = {
   item: MenuItems;
-  addItem: () => void;
+  addItem: (item: MenuItems) => void;
 };
 
 const MenuItem = ({ item, addItem }: MenuItemsProps) => {
   return (
     <button
-      onClick={() => addItem()}
+      onClick={() => addItem(item)}
       className="border-2 border-teal-400 hover:bg-teal-200 w-full p-3 flex justify-between"
     >
       <p>{item.name}</p>
