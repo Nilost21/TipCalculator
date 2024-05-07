@@ -1,7 +1,10 @@
 import { menuItems } from '../data/db';
 import MenuItems from './MenuItem';
+import useOrder from '../hooks/useOrder';
 
 function Main() {
+  const { addItem } = useOrder();
+
   return (
     <>
       <main className="max-w-7xl mx-auto py-20 grid md:grid-cols-2">
@@ -9,7 +12,7 @@ function Main() {
           <h2 className="text-4xl font-black">Menu</h2>
           <div className="space-y-3 mt-10">
             {menuItems.map((item) => (
-              <MenuItems key={item.id} item={item} />
+              <MenuItems key={item.id} item={item} addItem={addItem} />
             ))}
           </div>
         </div>
