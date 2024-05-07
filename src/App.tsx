@@ -1,14 +1,12 @@
-import './App.css'
+import './App.css';
+import Header from './components/Header';
 
 function App() {
-
-
   return (
     <>
-    <h1>Creating the dev Branch</h1>
-    <p>Hello Word</p>
+      <Header />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
